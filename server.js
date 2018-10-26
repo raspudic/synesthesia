@@ -40,7 +40,7 @@ spotifyApi.clientCredentialsGrant()
 // For IMAGGA
 var request2 = require('request'),
       apiKey = 'acc_474c1db4ddb65fa',
-      apiSecret = 'fd19b547da488025924458e76827e159';
+      apiSecret = process.env.IMAGGA_SECRET;
 
 // API CALL
 app.get('/get-track', function (request, response) {
