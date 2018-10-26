@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Spotify Visualization</title>
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:300,700" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="animate.css">
+  <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="browser.js" defer></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <style type="text/css">
+  canvas {
+    cursor: pointer;
+  }
+  .seed-container {
+    cursor: auto;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: white;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 12.25px;
+    font-family: 'Oxygen', sans-serif
+  }
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+  }
+  .seed-text {
+    font-weight: 700;
+  }
+  .howto {
+    font-size: 9px;
+  }
+  #fill {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  
+  <div class="bg"></div>
+  <div id="wrapper"> 
+    <header>
+      <div id="content" class="animated fadeIn delay-1s">
+          <div class="search-bar">
+            <form>
+              <input required type="text" id="searchbox" size="35" maxlength="300" placeholder="Search track" class="animated fadeInDown delay-1s">
+
+              <button id="btnsbmt" type="submit" class="animated fadeInDown delay-1s"><i class="fa fa-search fa-1x"></i></button>
+            </form>
+            <section class="results">
+              <ul id="results">
+              </ul>
+            </section>
+          </div>
+        </div>
+      
+      <h3 id="welcome">
+        Synesthesia
+      </h3>
+      <h1 id="mic">Use the search bar to find a song.</h1>
+      <div id="credits">
+         <p id="authors" class="animated fadeInUp delay-1s"><a href="#">What is this?</a></p>
+      </div>
+      
+      <div class="container">
+	 		  <div class="popup">
+	     		<div class="pop-body">
+            <button class="btn-close">X</button>
+            <h3>This is Synesthesia.</h3>
+            <p>This project was originally created during Spotify DevX Gothenburg 2018 by Mateo Raspudic, Lovisa Hagström, Gök Berk, and Sharan Sabi. <br/>
+               The version of the project that you are viewing now is improved and further developed by Mateo. <br/> <br/>
+               This project is based on Color-Wander by Matt DesLauriers but has been adapted
+               and modified to be used with Spotify. Synesthesia gets album images through the Spotify API and then uses Imagga to extract the most prominent colors from the image and uses these to paint
+               the album art beautifully with particles.
+               </p>
+          </div>
+	    	</div>
+      </div>
+     
+    </header>
+	</div>
+  
+  <div id="fill"></div>
+  <canvas id="canvas" class="noselect"></canvas>
+  <header class="seed-container">
+        
+  </header>
+  
+  <script src="bundle.js"></script>
+  
+  <script> 
+     $(document).ready(function(){
+       $("#mic").delay(500).animate({ opacity: 0.7 }, 1500);
+       $("#welcome").delay(200).animate({ opacity: 0.7 }, 1500);
+        $("#btnsbmt").click(function(){
+          $("#welcome").fadeOut("slow");
+          $("#mic").fadeOut("slow");
+    });
+       
+      
+});
+  </script>
+  
+</body>
+
+
+</html>
