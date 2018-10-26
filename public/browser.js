@@ -20,7 +20,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '4b2ee515c60b4396af0d0932511b1634';
-const redirectUri = 'https://healthy-composer.glitch.me/';
+const redirectUri = 'https://synesthesia-devx.glitch.me/';
 const scopes = [
   'streaming',
   'user-read-birthdate',
@@ -140,10 +140,7 @@ function reload (config, palette) {
       console.log(data);
       console.groupEnd();
     
-      
   });
-
- 
   
   background.crossOrigin = "Anonymous";
   
@@ -237,7 +234,6 @@ function play(device_id, id) {
 $('form').submit(function(event) {
   event.preventDefault();
 
-
   let query = $('input').val();
   let context = $('input[name="context"]:checked').val();
 
@@ -246,11 +242,7 @@ $('form').submit(function(event) {
     $('input[type="text"]').val('');
     $('input').focus();
     
-    
-    var url = data.album.images[0].url;
-    
-    console.log(url);
-    
+    var url = data.album.images[0].url;    
     
     play(webplayerdeviceid, data.id);
     
